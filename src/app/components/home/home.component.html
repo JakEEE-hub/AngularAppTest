@@ -1,0 +1,85 @@
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">KONTAKTIRAJTE NAS!</h1>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <form (ngSubmit)="submitForm()">
+            <!--Ime in priimek-->
+            <div class="field">
+                <label for="name" class="label">IME IN PRIIMEK</label>
+                <input type="text" 
+                id="name"
+                autocomplete="on"
+                pInputText formControlName="name" 
+                class="w-full" 
+                name="name" 
+                placeholder="Vnesite svoje ime in priimek"/>
+            </div>
+            <!--Naslov prevzema/firma-->
+            <div class="field">
+                <label for="prevzem" class="label">NASLOV PREVZEMA / IME PODJETJA</label>
+                <input type="text" 
+                id="prevzem"
+                autocomplete="on"
+                pInputText formControlName="prevzem" 
+                class="w-full" 
+                name="prevzem" 
+                placeholder="Vnesite ime PODJETJA"/>
+            </div>
+            <!--Datum, ura pripravljeno-->
+            <div class="field">
+                <label for="pripravljeno" class="label">DATUM / URA MOŽNEGA PREVZEMA</label>
+                <input type="text" 
+                id="pripravljeno"
+                autocomplete="on"
+                pInputText formControlName="pripravljeno" 
+                class="w-full" 
+                name="pripravljeno" 
+                placeholder="Vnesite datumske podatke prevzema"/>
+            </div>
+            <!--Na katero ime je roba-->
+            <div class="field">
+                <label for="prejemnik" class="label">IME PREJEMNIKA</label>
+                <input type="text" 
+                id="prejemnik"
+                autocomplete="on"
+                pInputText formControlName="prejemnik" 
+                class="w-full" 
+                name="prejemnik" 
+                placeholder="Vnesite ime prejemnika"/>
+            </div>
+            <!--Naslov dostave/firma-->
+            <div class="field">
+                <label for="dostava" class="label">NASLOV DOSTAVE / IME PODJETJA</label>
+                <input type="text" 
+                id="dostava"
+                autocomplete="on"
+                pInputText formControlName="dostava" 
+                class="w-full" 
+                name="dostava" 
+                placeholder="Vnesite podatke ime PODJETJA"/>
+            </div>
+            <!--Količina-->
+            <div class="field">
+                <label for="količina" class="label">KOLIČINA BLAGA</label>
+                <input type="text" 
+                id="količina"
+                autocomplete="on"
+                pInputText formControlName="količina" 
+                class="w-full" 
+                name="količina" 
+                placeholder="Vnesite količino"/>
+            </div>
+            <!--submit gumb-->
+            <button type="submit" class="button is-large is-warning">
+                Pošlji podatke!
+            </button>
+        </form>
+    </div>
+</section>
+
+<p-button label="Odjava" (onClick)="logOut()"></p-button>

@@ -1,0 +1,62 @@
+<form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+    <p-card header="Registracija" [style]="{width: '360px'}">
+        <div class="field">
+            <label for="fullName">Polno ime</label>
+            <input type="text"
+            id="fullName" 
+            pInputText formControlName="fullName" 
+            class="w-full" 
+            name="fullName" 
+            placeholder="Vnesi svoje ime in priimek"/>
+            <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="block p-error">
+                <div *ngIf="fullName.errors?.['required']">Polno ime je potrebno naslov je potreben!</div>
+                <div *ngIf="fullName.errors?.['pattern']">Oblika vnosa ni pravilna!</div>
+            </small>
+        </div>
+        <div class="field">
+            <label for="email">E-mail</label>
+            <input type="text" 
+            id="email"
+            autocomplete="on"
+            pInputText formControlName="email" 
+            class="w-full" 
+            name="email" 
+            placeholder="Vnesi svoj e-mail"/>
+            <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
+                <div *ngIf="email.errors?.['required']">E-mail naslov je potreben!</div>
+                <div *ngIf="email.errors?.['email']">E-mail naslov ni pravilen!</div>
+            </small>
+        </div>
+        <div class="field">
+            <label for="password">Geslo</label>
+            <input type="password" 
+            id="password"
+            pInputText formControlName="password" 
+            class="w-full" 
+            name="password" 
+            placeholder="Vnesi svoje geslo"/>
+            <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+                <div *ngIf="password.errors?.['required']">Geslo je potrebno!</div>
+            </small>
+        </div>
+        <div class="field">
+            <label for="confirmPassword">Ponovi geslo</label>
+            <input type="password"
+            id="confirmPassword" 
+            pInputText formControlName="confirmPassword" 
+            class="w-full" 
+            name="confirmPassword" 
+            placeholder="Ponovi svoje geslo"/>
+            <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="block p-error">
+                <div *ngIf="confirmPassword.errors?.['required']">Ponovitev gesla je potrebna!</div>
+            </small>
+            <small  class="block p-error" *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid">
+                Gesli se morata ujemati!
+            </small>
+        </div>
+        <p-button label="Registracija" styleClass="w-full" [disabled]="registerForm.invalid" type="submit"></p-button>
+        <div class="mt-2">
+            Si že naš član? <a routerLink="/login">Prijava</a>
+        </div>
+    </p-card>
+</form>

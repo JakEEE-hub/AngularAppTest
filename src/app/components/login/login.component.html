@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <p-card header="Prijava" [style]="{width: '360px'}">
+        <div class="field">
+            <label for="email">E-mail</label>
+            <input type="text" 
+            id="email"
+            pInputText formControlName="email" 
+            class="w-full" 
+            name="email" 
+            placeholder="Vnesi svoj e-mail"/>
+            <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
+                <div *ngIf="email.errors?.['required']">E-mail naslov je potreben!</div>
+                <div *ngIf="email.errors?.['email']">E-mail naslov ni pravilen!</div>
+            </small>
+        </div>
+        <div class="field">
+            <label for="password">Geslo</label>
+            <input type="password" 
+            id="password"
+            pInputText formControlName="password" 
+            class="w-full" 
+            name="password" 
+            placeholder="Vnesi svoje geslo"/>
+            <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+                <div *ngIf="password.errors?.['required']">Geslo je potrebno!</div>
+            </small>
+        </div>
+        <p-button label="Prijava" styleClass="w-full" [disabled]="loginForm.invalid" type="submit"></p-button>
+        <div class="mt-2">
+            Še nisi naš član? <a routerLink="/register">Registracija</a>
+        </div>
+    </p-card>
+</form>

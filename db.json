@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "51b8",
+      "fullName": "asd qwe",
+      "email": "asd@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "515d",
+      "fullName": "qwe qwe",
+      "email": "qw@asdasd.s",
+      "password": "123"
+    }
+  ]
+}
